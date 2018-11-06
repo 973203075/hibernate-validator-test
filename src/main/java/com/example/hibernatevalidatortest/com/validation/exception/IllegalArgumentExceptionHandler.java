@@ -20,7 +20,7 @@ public class IllegalArgumentExceptionHandler {
     @ResponseBody
     public Object runTimeException(HttpServletRequest request, IllegalArgumentException e) {
         String uri = request.getRequestURI();
-        HashMap<String, Object> error = new HashMap<>();
+        HashMap<String, Object> error = new HashMap<>(16);
         error.put("path", uri);
         error.put("exception", "非法参数");
         error.put("error", JSON.parse(e.getMessage()));
